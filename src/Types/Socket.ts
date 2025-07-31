@@ -59,6 +59,8 @@ export type SocketConfig = {
 	retryRequestDelayMs: number
 	/** max retry count */
 	maxMsgRetryCount: number
+	/** whether to request message resend via phone on first retry */
+	requestResendViaPhone?: boolean
 	/** time to wait for the generation of the next QR in ms */
 	qrTimeout?: number
 	/** provide an auth state object to maintain the auth state */

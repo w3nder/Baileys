@@ -180,8 +180,8 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 
 		const { account, signedPreKey, signedIdentityKey: identityKey } = authState.creds
 
-		if (retryCount === 1) {
-			//request a resend via phone
+		if (retryCount === 1 && config.requestResendViaPhone !== false) {
+			//request a resend via phone if enabled in config
 			const msgId = await requestPlaceholderResend(msgKey)
 			logger.debug(`sendRetryRequest: requested placeholder resend for message ${msgId}`)
 		}
